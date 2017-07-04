@@ -2,23 +2,23 @@
 
 namespace Transformer
 {
-    public class CustomEntry : Editor
+    public class CustomEntry : Entry
     {
-        public static readonly BindableProperty EntryProperty =
-       BindableProperty.Create("Placeholder", typeof(string), typeof(string), "");
+        // public static readonly BindableProperty EntryProperty =
+        //BindableProperty.Create("Placeholder", typeof(string), typeof(string), "");
 
-        public string Placeholder
-        {
-            get
-            {
-                return (string)GetValue(EntryProperty);
-            }
+        // public string Placeholder
+        // {
+        //     get
+        //     {
+        //         return (string)GetValue(EntryProperty);
+        //     }
 
-            set
-            {
-                SetValue(EntryProperty, value);
-            }
-        }
+        //     set
+        //     {
+        //         SetValue(EntryProperty, value);
+        //     }
+        // }
 
         //public static readonly BindableProperty CornerRadiousProperty=
         //    BindableProperty.Create<CustomEntry ,double>(p => p.CornerRadius,0);
