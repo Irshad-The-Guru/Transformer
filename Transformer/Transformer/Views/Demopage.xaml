@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Transformer.Views.Demopage">
+    <ContentPage.Content>
+<StackLayout>
+    
+        <Grid VerticalOptions="FillAndExpand">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+            </Grid.ColumnDefinitions>
+            <Image Opacity="1"
+                   Source="image_bg.png"
+                   Aspect="Fill" Grid.Row="0" Grid.RowSpan="9" Grid.Column="0" Grid.ColumnSpan="5" />
+
+          
+        </Grid>
+</StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

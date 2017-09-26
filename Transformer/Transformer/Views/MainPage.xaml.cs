@@ -1,8 +1,6 @@
-﻿using Xamarin.Forms;
-
-namespace Transformer.Views
+﻿namespace Transformer.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage
     {
         public MainPage()
         {

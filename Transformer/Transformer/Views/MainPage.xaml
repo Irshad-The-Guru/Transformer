@@ -5,37 +5,52 @@
              xmlns:viewModels="clr-namespace:Transformer.ViewModels;assembly=Transformer"
              xmlns:transformer="clr-namespace:Transformer;assembly=Transformer">
 
+    <!--<xfg:ContentPageGloss.BackgroundGradient>
+        <xfg:Gradient Rotation="150">
+            <xfg:GradientStep StepColor="#03A9F4" StepPercentage="0" />
+            <xfg:GradientStep StepColor="#303F9F" StepPercentage="1" />
+        </xfg:Gradient> 
+    </xfg:ContentPageGloss.BackgroundGradient>-->
     <ContentPage.BindingContext>
         <viewModels:MainViewModel>
         </viewModels:MainViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness"
-                    Android="0,0,0,0"
-                    iOS="0,20,0,0" />
+        <OnPlatform x:TypeArguments="Thickness" >
+        </OnPlatform>
+        
     </ContentPage.Padding>
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Style  TargetType="Label">
+                <Setter Property ="TextColor" Value="#FFFFFF"></Setter>
+            </Style>
+            <!--<Style TargetType="Label"  BasedOn="l" />-->
         </ResourceDictionary>
-    </ContentPage.Resources>
-    <ContentPage.Content>
-            <ScrollView>
-                <StackLayout >
-            
-                <Grid BackgroundColor="White" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="30" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="25" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="250" />
-                       
-                    </Grid.RowDefinitions>
 
+    </ContentPage.Resources>
+
+ 
+    <ContentPage.Content >
+
+        <ScrollView >
+
+            <StackLayout >
+
+                <Grid  VerticalOptions="FillAndExpand"  >
+                   
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10" />
                         <ColumnDefinition Width="*" />
@@ -43,107 +58,66 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="10" />
                     </Grid.ColumnDefinitions>
-                    <BoxView Grid.Row="0" Grid.ColumnSpan="5" BackgroundColor="Teal"  Color="Teal">
-                    </BoxView>
-                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Text="Transformer Calculation"
-                           HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" TextColor="White" FontSize="20" />
+                    <Image Opacity="1"
+                           Source="image_bg.png"
+                           Aspect="Fill" Grid.Row="0" Grid.RowSpan="9" Grid.Column="0" Grid.ColumnSpan="5" />
 
-                    <Label Grid.Row="1" Grid.Column="1" FontSize="16" Text="HEIGHT" VerticalOptions="End"  TextColor="#4584C2"
+                    <!--BoxView Grid.Row="0" Grid.ColumnSpan="5"   >
+                        --><!--<xfg:Gradient Rotation="150">
+                            <xfg:GradientStep StepColor="DeepPink" StepPercentage="0" />
+                            <xfg:GradientStep StepColor="DarkRed" StepPercentage="1" />
+                        </xfg:Gradient>--><!--
+                    </BoxView>-->
+                   
+                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Text="Transformer Calculation"
+                      HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  FontSize="25" />
+
+                    <Label Grid.Row="1" Grid.Column="1" FontSize="16" Text="HEIGHT" VerticalOptions="End"  
                            HorizontalOptions="Center" />
 
                     <Label Grid.Row="1" Grid.Column="3" FontSize="16" Text="WIDTH" VerticalOptions="End" HorizontalOptions="Center"
-                           TextColor="#4584C2" />
+                            />
 
-                    <transformer:CustomEntry Keyboard="Numeric"   Grid.Row="2" Grid.Column="1" Placeholder="Eg 1.5 in"
+                    <transformer:CustomEntry Keyboard="Numeric"      Grid.Row="2" Grid.Column="1" Placeholder="Eg 1.5 in"
                       HorizontalOptions="FillAndExpand"  FontSize="20" Text="{Binding Height}" />
 
                     <Label Grid.Row="2" Grid.Column="2" Text="X" VerticalOptions="CenterAndExpand"
-                           HorizontalOptions="CenterAndExpand" TextColor="Black" />
+                           HorizontalOptions="CenterAndExpand"  />
 
                     <transformer:CustomEntry  Keyboard="Numeric" Grid.Row="2" Grid.Column="3" Placeholder="Eg 1.5 in"
                       HorizontalOptions="FillAndExpand" Text="{Binding Width}" />
 
-                    <Label Grid.Row="3" Grid.Column="1" FontSize="16" Text="PRIMARY VOLT" VerticalOptions="FillAndExpand"  TextColor="#4584C2"
+                    <Label Grid.Row="3" Grid.Column="1" FontSize="16" Text="PRIMARY VOLT" VerticalOptions="FillAndExpand"  
                            HorizontalOptions="Center" />
 
                     <transformer:CustomEntry  Keyboard="Numeric" Grid.Row="4" Grid.Column="1" Placeholder="Eg 220V"
                           HorizontalOptions="FillAndExpand" Text="{Binding PrimaryVolt}" />
 
                     <Label Grid.Row="3" Grid.Column="3" FontSize="16" Text="SECONDRY VOLT" VerticalOptions="FillAndExpand" HorizontalOptions="Center"
-                           TextColor="#4584C2" />
+                            />
 
                     <transformer:CustomEntry  Keyboard="Numeric" Grid.Row="4" Grid.Column="3" Placeholder="Eg 12 V"
                           HorizontalOptions="FillAndExpand" Text="{Binding SecondryVolt}" />
 
-                    <transformer:CustomButton Grid.Row="5" Grid.Column="1"   HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
-                           Grid.ColumnSpan="3" Text="CALCULATE" TextColor="#4584C2"   FontSize="20" Command ="{Binding CalculateCommand}">
+                    <transformer:CustomButton  Grid.Row="5" Grid.Column="1"   BackgroundColor="#f50057"   HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                           Grid.ColumnSpan="3" Text="CALCULATE" TextColor="#f50057"   FontSize="20" Command ="{Binding CalculateCommand}">
                     </transformer:CustomButton>
-                    <Label Grid.Row ="6" Grid.Column="1" Text="Primary Turns" FontSize="20" VerticalOptions="End" HorizontalOptions="Center"
-                           TextColor="OrangeRed"/>
+                    <Label Grid.Row ="6" Grid.Column="1" Text="Primary Turns" FontSize="20" VerticalOptions="End" HorizontalOptions="Center"/>
 
-                        <Label Grid.Row ="6" Grid.Column="3" Text="Secondry Turns" FontSize="20" VerticalOptions="End" HorizontalOptions="Center"
-                               TextColor="OrangeRed"/>
+                    <Label Grid.Row ="6" Grid.Column="3" Text="Secondry Turns" FontSize="20" VerticalOptions="End" HorizontalOptions="Center"/>
 
+                    <!--<transformer:CustomButton Grid.Row="7" HeightRequest="40" Grid.Column="1"  /> >
+                    <transformer:CustomButton Grid.Row="7" Grid.Column="3"   />-->
 
-                        <Label Grid.Row ="7" Grid.Column="1" Text="{Binding  PrimaryTurns}" FontSize="20" VerticalOptions="End" HorizontalOptions="Center"
-                           TextColor="DarkBlue"/>
-                    <!--StringFormat ='{4,F2}'-->
+                    <Label Grid.Row ="7" Grid.Column="1"  Text="{Binding  PrimaryTurns}" FontSize="25" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#CDFF3A" />
 
-                        <Label Grid.Row ="7" Grid.Column="3"  Text="{Binding SecondryTurns}" FontSize="20" VerticalOptions="End" HorizontalOptions="Center"
-                           TextColor="DarkBlue"/>
+                    <Label Grid.Row ="7" Grid.Column="3"  Text="{Binding SecondryTurns}" FontSize="25" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#CDFF3A"  />
+                    <BoxView Grid.Row="8" Grid.Column="0"  Grid.ColumnSpan="5" BackgroundColor="#f50057"  VerticalOptions="EndAndExpand" />
 
-
-
-                        <!--<Grid BackgroundColor="White" Grid.Row="6" Column="0" ColumnSpan="5">
-                        
-                    </Grid>-->
-                    <BoxView Grid.Row="8" Grid.Column="0"  Grid.ColumnSpan="5" BackgroundColor="Teal"  VerticalOptions="EndAndExpand" />
-
-                    <Label Grid.Row="8" Grid.Column="0"  Grid.ColumnSpan="5" Text="Prakash Electronic" FontSize ="20"
-                          HorizontalOptions="CenterAndExpand"   TextColor="White" VerticalOptions="End" ></Label>
-
-                    <!--<Button Text = "C" Grid.Row="1" Grid.Column="0"
-        Style="{StaticResource darkerButton}" />
-                <Button Text = "+/-" Grid.Row="1" Grid.Column="1"
-        Style="{StaticResource darkerButton}" />
-                <Button Text = "%" Grid.Row="1" Grid.Column="2"
-        Style="{StaticResource darkerButton}" />
-                <Button Text = "div" Grid.Row="1" Grid.Column="3"
-        Style="{StaticResource orangeButton}" />
-                <Button Text = "7" Grid.Row="2" Grid.Column="0"
-        Style="{StaticResource plainButton}" />
-                <Button Text = "8" Grid.Row="2" Grid.Column="1"
-        Style="{StaticResource plainButton}" />
-                <Button Text = "9" Grid.Row="2" Grid.Column="2"
-        Style="{StaticResource plainButton}" />
-                <Button Text = "X" Grid.Row="2" Grid.Column="3"
-        Style="{StaticResource orangeButton}" />
-                <Button Text = "4" Grid.Row="3" Grid.Column="0"
-        Style="{StaticResource plainButton}" />
-                <Button Text = "5" Grid.Row="3" Grid.Column="1"
-        Style="{StaticResource plainButton}" />
-                <Button Text = "6" Grid.Row="3" Grid.Column="2"
-        Style="{StaticResource plainButton}" />
-                <Button Text = "-" Grid.Row="3" Grid.Column="3"
-        Style="{StaticResource orangeButton}" />
-                <Button Text = "1" Grid.Row="4" Grid.Column="0"
-        Style="{StaticResource plainButton}" />
-                <Button Text = "2" Grid.Row="4" Grid.Column="1"
-        Style="{StaticResource plainButton}" />
-                <Button Text = "3" Grid.Row="4" Grid.Column="2"
-        Style="{StaticResource plainButton}" />
-                <Button Text = "+" Grid.Row="4" Grid.Column="3"
-        Style="{StaticResource orangeButton}" />
-                <Button Text = "0" Grid.ColumnSpan="2"
-        Grid.Row="5" Grid.Column="0" Style="{StaticResource plainButton}" />
-                <Button Text = "." Grid.Row="5" Grid.Column="2"
-        Style="{StaticResource plainButton}" />
-                <Button Text = "=" Grid.Row="5" Grid.Column="3"
-        Style="{StaticResource orangeButton}" />-->
+                    <Label Grid.Row="8" Grid.Column="0"  Grid.ColumnSpan="5" Text="Prakash Electronic" TextColor="#FFFFFF" FontSize ="30" 
+                          HorizontalOptions="CenterAndExpand"   VerticalOptions="End" ></Label>
                 </Grid>
-           
-        </StackLayout>
-            </ScrollView>
-
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
